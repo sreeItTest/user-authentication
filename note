@@ -1,0 +1,35 @@
+TODO
+- Replace authentication with static user with authentication from database.
+
+Step Basic Auth From DB
+
+- Referensi https://www.youtube.com/watch?v=r5i5ljV0uRQ
+- Referensi CRUD Postgre https://www.callicoder.com/spring-boot-jpa-hibernate-postgresql-restful-crud-api-example/
+- Add dependecy spring-boot-starter-data-jpa and postgresql
+- Add application.properties for config database
+- Create database and table user (can skip)
+- Create entity class from table `User` and implement UserDetails
+- Create repository for table `User`, and create method findByEmail or findByUsername with return type is Optional
+- Create service for AppUser and implement UserDetailService, this service for inject data to security configuration
+- Create method in AppUserService
+    - loadUserByUsername
+    - registerAppUser
+- Create controller or endpoint for register user
+- Adjustment configurasin for security
+
+
+private String username;
+private String email;
+private String fullName;
+private String password;
+private UserRole appUserRole;
+
+
+create table sec_user(
+    id bigserial primary key,
+    username varchar,
+    email varchar,
+    full_name varchar,
+    password varchar,
+    app_user_role varchar
+)
